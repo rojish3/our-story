@@ -1,12 +1,80 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { StarField } from "@/components/StarField";
+import { FloatingHearts } from "@/components/FloatingHearts";
+import { HeroSection } from "@/components/HeroSection";
+import { MemorySection } from "@/components/MemorySection";
+import { TransitionSection } from "@/components/TransitionSection";
+import { ProposalSection } from "@/components/ProposalSection";
+
+// Import memory images
+import memory1 from "@/assets/memory-1.jpg";
+import memory2 from "@/assets/memory-2.jpg";
+import memory3 from "@/assets/memory-3.jpg";
+import memory4 from "@/assets/memory-4.jpg";
+
+const memories = [
+  {
+    image: memory1,
+    caption: "Remember that sunset? I knew then that every moment with you would be painted in gold...",
+    date: "That sunset we loved",
+    hoverMessage: "I still feel the warmth of your hand in mine.",
+  },
+  {
+    image: memory2,
+    caption: "Those quiet mornings, our coffee talks... where we fell in love with the little things.",
+    date: "Our favorite café",
+    hoverMessage: "Your laugh over coffee is my favorite sound.",
+  },
+  {
+    image: memory3,
+    caption: "Walking under city lights, you made every street feel like a fairytale...",
+    date: "Night adventures",
+    hoverMessage: "Every step with you is an adventure.",
+  },
+  {
+    image: memory4,
+    caption: "Simple moments became treasures when you were there beside me.",
+    date: "That perfect day",
+    hoverMessage: "You make ordinary moments extraordinary.",
+  },
+];
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="relative bg-night-gradient min-h-screen overflow-x-hidden">
+      {/* Background effects */}
+      <StarField />
+      <FloatingHearts />
+
+      {/* Hero Section */}
+      <HeroSection />
+
+      {/* First transition */}
+      <TransitionSection text="Every moment with you became a memory I'd never want to forget..." />
+
+      {/* Memory sections */}
+      {memories.map((memory, index) => (
+        <MemorySection
+          key={index}
+          image={memory.image}
+          caption={memory.caption}
+          date={memory.date}
+          index={index}
+          hoverMessage={memory.hoverMessage}
+        />
+      ))}
+
+      {/* Final transition before proposal */}
+      <TransitionSection text="And now, there's one last thing I need to say..." />
+
+      {/* The Proposal */}
+      <ProposalSection />
+
+      {/* Footer */}
+      <footer className="py-12 text-center">
+        <p className="font-handwritten text-cream-soft/40 text-lg">
+          Made with all my heart, just for you 💕
+        </p>
+      </footer>
     </div>
   );
 };

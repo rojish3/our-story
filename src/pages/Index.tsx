@@ -8,33 +8,44 @@ import { MemorySection } from "@/components/MemorySection";
 import { TransitionSection } from "@/components/TransitionSection";
 import { ProposalSection } from "@/components/ProposalSection";
 
-// Import memory images
-import memory1 from "@/assets/memory-1.jpg";
-import memory2 from "@/assets/memory-2.jpg";
-import memory3 from "@/assets/memory-3.jpg";
-import memory4 from "@/assets/memory-4.jpg";
-
+// Memory images - using curated sunset/sky themed images
 const memories = [
   {
-    images: [memory1], // You can add more images: [memory1, anotherImage1, ...]
+    images: [
+      "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80",
+      "https://images.unsplash.com/photo-1507400492013-162706c8c05e?w=800&q=80",
+      "https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?w=800&q=80",
+    ],
     caption: "Remember that sunset? I knew then that every moment with you would be painted in gold...",
     date: "That sunset we loved",
     hoverMessage: "I still feel the warmth of your hand in mine.",
   },
   {
-    images: [memory2], // Add more images here for this category
+    images: [
+      "https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?w=800&q=80",
+      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=80",
+      "https://images.unsplash.com/photo-1489914099268-1dad649f76bf?w=800&q=80",
+    ],
     caption: "Those quiet mornings, our coffee talks... where we fell in love with the little things.",
     date: "Our favorite café",
     hoverMessage: "Your laugh over coffee is my favorite sound.",
   },
   {
-    images: [memory3], // Add more images here
+    images: [
+      "https://images.unsplash.com/photo-1532074534361-bb09a38cf917?w=800&q=80",
+      "https://images.unsplash.com/photo-1464852045489-bccb7d17fe39?w=800&q=80",
+      "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&q=80",
+    ],
     caption: "Walking under city lights, you made every street feel like a fairytale...",
     date: "Night adventures",
     hoverMessage: "Every step with you is an adventure.",
   },
   {
-    images: [memory4], // Add more images here
+    images: [
+      "https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?w=800&q=80",
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+      "https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=800&q=80",
+    ],
     caption: "Simple moments became treasures when you were there beside me.",
     date: "That perfect day",
     hoverMessage: "You make ordinary moments extraordinary.",

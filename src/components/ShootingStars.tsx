@@ -1,75 +1,104 @@
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-
-interface ShootingStar {
-  id: number;
-  startX: number;
-  startY: number;
-  delay: number;
-  duration: number;
-  angle: number;
-}
-
-export const ShootingStars = () => {
-  const [stars, setStars] = useState<ShootingStar[]>([]);
-
-  useEffect(() => {
-    const generateStars = () => {
-      const newStars: ShootingStar[] = [];
-      // Only 2-3 shooting stars for rarity
-      for (let i = 0; i < 3; i++) {
-        newStars.push({
-          id: i,
-          startX: Math.random() * 60 + 20, // Start more centered
-          startY: Math.random() * 30, // Start from top portion
-          delay: Math.random() * 20 + i * 15, // Much longer delays between stars
-          duration: Math.random() * 0.8 + 0.6, // Faster streak
-          angle: Math.random() * 20 + 35, // 35-55 degree angle
-        });
-      }
-      setStars(newStars);
-    };
-    generateStars();
-  }, []);
-
-  return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-5">
-      {stars.map((star) => (
-        <motion.div
-          key={star.id}
-          className="absolute"
-          style={{
-            left: `${star.startX}%`,
-            top: `${star.startY}%`,
-            transform: `rotate(${star.angle}deg)`,
-          }}
-          initial={{ opacity: 0, x: 0, y: 0 }}
-          animate={{
-            opacity: [0, 1, 1, 0],
-            x: [0, 200, 400],
-            y: [0, 150, 300],
-          }}
-          transition={{
-            duration: star.duration,
-            delay: star.delay,
-            repeat: Infinity,
-            repeatDelay: Math.random() * 25 + 20, // Very long wait between appearances
-            ease: "easeIn",
-          }}
-        >
-          {/* Star head - bright point */}
-          <div className="absolute w-1.5 h-1.5 bg-cream rounded-full shadow-[0_0_6px_2px_rgba(255,250,240,0.8)]" />
-          {/* Trail - attached behind the star, fading away */}
-          <div 
-            className="absolute h-0.5 bg-gradient-to-r from-transparent via-gold-warm/40 to-cream/90"
-            style={{
-              width: '80px',
-              right: '6px', // Attached to the star
-              top: '2px',
-            }}
-          />
-        </motion.div>
-      ))}
-    </div>
-  );
-};
+ import { motion } from "framer-motion";
+ import { useEffect, useState } from "react";
+ 
+ interface ShootingStar {
+   id: number;
+   startX: number;
+   startY: number;
+   delay: number;
+   duration: number;
+ }
+ 
+ export const ShootingStars = () => {
+   const [stars, setStars] = useState<ShootingStar[]>([]);
+ 
+   useEffect(() => {
+     const generateStars = () => {
+       const newStars: ShootingStar[] = [];
+       // Only 2 shooting stars - very rare
+       for (let i = 0; i < 2; i++) {
+         newStars.push({
+           id: i,
+           startX: Math.random() * 40 + 10,
+           startY: Math.random() * 20 + 5,
+           delay: Math.random() * 15 + i * 25,
+           duration: Math.random() * 0.4 + 0.5,
+         });
+       }
+       setStars(newStars);
+     };
+     generateStars();
+   }, []);
+ 
+   return (
+     <div className="fixed inset-0 overflow-hidden pointer-events-none z-[1]">
+       {stars.map((star) => (
+         <motion.div
+           key={star.id}
+           className="absolute"
+           style={{
+             left: `${star.startX}%`,
+             top: `${star.startY}%`,
+           }}
+           initial={{ opacity: 0, x: 0, y: 0 }}
+           animate={{
+             opacity: [0, 0.9, 0.9, 0],
+             x: [0, 150, 280],
+             y: [0, 120, 220],
+           }}
+           transition={{
+             duration: star.duration,
+             delay: star.delay,
+             repeat: Infinity,
+             repeatDelay: Math.random() * 35 + 30,
+             ease: "easeOut",
+           }}
+         >
+           {/* Shooting star with integrated tail using SVG for precision */}
+           <svg
+             width="60"
+             height="3"
+             viewBox="0 0 60 3"
+             className="overflow-visible"
+             style={{ transform: "rotate(40deg)" }}
+           >
+             {/* Tail gradient - fades from transparent to bright */}
+             <defs>
+               <linearGradient id={`tail-${star.id}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                 <stop offset="0%" stopColor="rgba(255,250,240,0)" />
+                 <stop offset="60%" stopColor="rgba(255,250,240,0.3)" />
+                 <stop offset="90%" stopColor="rgba(255,250,240,0.7)" />
+                 <stop offset="100%" stopColor="rgba(255,250,240,1)" />
+               </linearGradient>
+               <filter id={`glow-${star.id}`}>
+                 <feGaussianBlur stdDeviation="0.5" result="blur" />
+                 <feMerge>
+                   <feMergeNode in="blur" />
+                   <feMergeNode in="SourceGraphic" />
+                 </feMerge>
+               </filter>
+             </defs>
+             {/* Tail line */}
+             <line
+               x1="0"
+               y1="1.5"
+               x2="58"
+               y2="1.5"
+               stroke={`url(#tail-${star.id})`}
+               strokeWidth="1"
+               strokeLinecap="round"
+             />
+             {/* Star head - small bright point at the end */}
+             <circle
+               cx="59"
+               cy="1.5"
+               r="1"
+               fill="rgba(255,250,240,1)"
+               filter={`url(#glow-${star.id})`}
+             />
+           </svg>
+         </motion.div>
+       ))}
+     </div>
+   );
+ };

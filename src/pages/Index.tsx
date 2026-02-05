@@ -7,6 +7,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { MemorySection } from "@/components/MemorySection";
 import { TransitionSection } from "@/components/TransitionSection";
 import { ProposalSection } from "@/components/ProposalSection";
+ import { BackgroundMusic } from "@/components/BackgroundMusic";
 
 // Memory images - using curated sunset/sky themed images
 const memories = [
@@ -61,6 +62,9 @@ const Index = () => {
       <ShootingStars />
       <FloatingClouds />
       <FloatingHearts />
+ 
+       {/* Background Music Player */}
+       <BackgroundMusic />
 
       {/* Hero Section */}
       <HeroSection />

@@ -7,46 +7,42 @@ import { HeroSection } from "@/components/HeroSection";
 import { MemorySection } from "@/components/MemorySection";
 import { TransitionSection } from "@/components/TransitionSection";
 import { ProposalSection } from "@/components/ProposalSection";
- import { BackgroundMusic } from "@/components/BackgroundMusic";
+import { BackgroundMusic } from "@/components/BackgroundMusic";
+import sunset1 from "@/assets/memories/sunset1.jpg";
+import sunset2 from "@/assets/memories/sunset2.jpg";
+import cafe1 from "@/assets/memories/cafe1.jpg";
+import cafe2 from "@/assets/memories/cafe2.jpg";
+import us1 from "@/assets/memories/us1.jpg";
+import us2 from "@/assets/memories/us2.jpg";
+import us3 from "@/assets/memories/us3.jpg";
+import together1 from "@/assets/memories/together1.jpg";
+import together2 from "@/assets/memories/together2.jpg";
 
 // Memory images - using curated sunset/sky themed images
 const memories = [
   {
-    images: [
-      "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=800&q=80",
-      "https://images.unsplash.com/photo-1507400492013-162706c8c05e?w=800&q=80",
-      "https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?w=800&q=80",
-    ],
-    caption: "Remember that sunset? I knew then that every moment with you would be painted in gold...",
+    images: [sunset1, sunset2],
+    caption:
+      "Remember that sunset? I knew then that every moment with you would be painted in gold...",
     date: "That sunset we loved",
     hoverMessage: "I still feel the warmth of your hand in mine.",
   },
   {
-    images: [
-      "https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?w=800&q=80",
-      "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&q=80",
-      "https://images.unsplash.com/photo-1489914099268-1dad649f76bf?w=800&q=80",
-    ],
-    caption: "Those quiet mornings, our coffee talks... where we fell in love with the little things.",
+    images: [cafe1, cafe2],
+    caption:
+      "Those cafe dates, our coffee talks... where we fell in love with the little things.",
     date: "Our favorite café",
     hoverMessage: "Your laugh over coffee is my favorite sound.",
   },
   {
-    images: [
-      "https://images.unsplash.com/photo-1532074534361-bb09a38cf917?w=800&q=80",
-      "https://images.unsplash.com/photo-1464852045489-bccb7d17fe39?w=800&q=80",
-      "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&q=80",
-    ],
-    caption: "Walking under city lights, you made every street feel like a fairytale...",
-    date: "Night adventures",
-    hoverMessage: "Every step with you is an adventure.",
+    images: [us1, us2, us3],
+    caption:
+      "Exploring new places together, turning unfamiliar streets into shared memories, and realizing that every journey felt complete just because I was walking it with you.",
+    date: "You & me",
+    hoverMessage: "Getting lost in new places, but never losing each other. ",
   },
   {
-    images: [
-      "https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?w=800&q=80",
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
-      "https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=800&q=80",
-    ],
+    images: [together1, together2],
     caption: "Simple moments became treasures when you were there beside me.",
     date: "That perfect day",
     hoverMessage: "You make ordinary moments extraordinary.",
@@ -62,9 +58,9 @@ const Index = () => {
       <ShootingStars />
       <FloatingClouds />
       <FloatingHearts />
- 
-       {/* Background Music Player */}
-       <BackgroundMusic />
+
+      {/* Background Music Player */}
+      <BackgroundMusic />
 
       {/* Hero Section */}
       <HeroSection />

@@ -8,8 +8,8 @@ import { Music } from "lucide-react";
   const [hasInteracted, setHasInteracted] = useState(false);
    const audioRef = useRef<HTMLAudioElement>(null);
  
-  // Romantic ambient music - royalty free from Pixabay
-  const musicUrl = "https://cdn.pixabay.com/audio/2022/10/25/audio_5cf04b4e25.mp3";
+  // Romantic ambient music - royalty free
+  const musicUrl = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
  
    useEffect(() => {
      // Hide hint after 5 seconds

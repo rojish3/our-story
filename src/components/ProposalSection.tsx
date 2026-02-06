@@ -70,7 +70,7 @@ export const ProposalSection = () => {
       )}
 
       <div className="text-center max-w-2xl relative z-20">
-        {/* Glowing backdrop */}
+        {/* Soft romantic glow - subtle deep rose only */}
         <motion.div
           className="absolute inset-0 -z-10"
           initial={{ opacity: 0 }}
@@ -78,19 +78,14 @@ export const ProposalSection = () => {
           transition={{ duration: 2 }}
         >
           <motion.div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[32rem] h-[32rem] bg-primary/15 rounded-full blur-3xl"
-            animate={{ scale: [1, 1.1, 1] }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[28rem] h-[28rem] bg-primary/8 rounded-full blur-[100px]"
+            animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.8, 0.6] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-rose-deep/10 rounded-full blur-[80px]"
+            animate={{ scale: [1.05, 1, 1.05], opacity: [0.5, 0.7, 0.5] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gold-warm/15 rounded-full blur-2xl"
-            animate={{ scale: [1.1, 1, 1.1] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-rose-soft/20 rounded-full blur-xl"
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
           />
         </motion.div>
 
